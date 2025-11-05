@@ -1,57 +1,12 @@
-   0.013170857s  INFO prepare_target{force=false package_id=rust_json_parser v0.1.0 (/home/juanjo/code/app/rust_json_parser) target="rust_json_parser"}: cargo::core::compiler::fingerprint: stale: changed "/home/juanjo/code/app/rust_json_parser/src/tokenizers.rs"
-   0.013186057s  INFO prepare_target{force=false package_id=rust_json_parser v0.1.0 (/home/juanjo/code/app/rust_json_parser) target="rust_json_parser"}: cargo::core::compiler::fingerprint:           (vs) "/home/juanjo/code/app/rust_json_parser/target/debug/.fingerprint/rust_json_parser-3a63ca359155a6dc/dep-lib-rust_json_parser"
-   0.013190356s  INFO prepare_target{force=false package_id=rust_json_parser v0.1.0 (/home/juanjo/code/app/rust_json_parser) target="rust_json_parser"}: cargo::core::compiler::fingerprint:                FileTime { seconds: 1762363325, nanos: 140384742 } < FileTime { seconds: 1762363492, nanos: 62552163 }
-   0.013238856s  INFO prepare_target{force=false package_id=rust_json_parser v0.1.0 (/home/juanjo/code/app/rust_json_parser) target="rust_json_parser"}: cargo::core::compiler::fingerprint: fingerprint dirty for rust_json_parser v0.1.0 (/home/juanjo/code/app/rust_json_parser)/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("rust_json_parser", ["lib"], "/home/juanjo/code/app/rust_json_parser/src/lib.rs", Edition2021) }
-   0.013253456s  INFO prepare_target{force=false package_id=rust_json_parser v0.1.0 (/home/juanjo/code/app/rust_json_parser) target="rust_json_parser"}: cargo::core::compiler::fingerprint:     dirty: FsStatusOutdated(StaleItem(ChangedFile { reference: "/home/juanjo/code/app/rust_json_parser/target/debug/.fingerprint/rust_json_parser-3a63ca359155a6dc/dep-lib-rust_json_parser", reference_mtime: FileTime { seconds: 1762363325, nanos: 140384742 }, stale: "/home/juanjo/code/app/rust_json_parser/src/tokenizers.rs", stale_mtime: FileTime { seconds: 1762363492, nanos: 62552163 } }))
-   0.013551553s  INFO prepare_target{force=false package_id=rust_json_parser v0.1.0 (/home/juanjo/code/app/rust_json_parser) target="rust_json_parser"}: cargo::core::compiler::fingerprint: stale: changed "/home/juanjo/code/app/rust_json_parser/src/tokenizers.rs"
-   0.013563352s  INFO prepare_target{force=false package_id=rust_json_parser v0.1.0 (/home/juanjo/code/app/rust_json_parser) target="rust_json_parser"}: cargo::core::compiler::fingerprint:           (vs) "/home/juanjo/code/app/rust_json_parser/target/debug/.fingerprint/rust_json_parser-8b3642cd44296011/dep-test-lib-rust_json_parser"
-   0.013569152s  INFO prepare_target{force=false package_id=rust_json_parser v0.1.0 (/home/juanjo/code/app/rust_json_parser) target="rust_json_parser"}: cargo::core::compiler::fingerprint:                FileTime { seconds: 1762363325, nanos: 140384742 } < FileTime { seconds: 1762363492, nanos: 62552163 }
-   0.013615052s  INFO prepare_target{force=false package_id=rust_json_parser v0.1.0 (/home/juanjo/code/app/rust_json_parser) target="rust_json_parser"}: cargo::core::compiler::fingerprint: fingerprint dirty for rust_json_parser v0.1.0 (/home/juanjo/code/app/rust_json_parser)/Check { test: true }/TargetInner { name_inferred: true, ..: lib_target("rust_json_parser", ["lib"], "/home/juanjo/code/app/rust_json_parser/src/lib.rs", Edition2021) }
-   0.013627752s  INFO prepare_target{force=false package_id=rust_json_parser v0.1.0 (/home/juanjo/code/app/rust_json_parser) target="rust_json_parser"}: cargo::core::compiler::fingerprint:     dirty: FsStatusOutdated(StaleItem(ChangedFile { reference: "/home/juanjo/code/app/rust_json_parser/target/debug/.fingerprint/rust_json_parser-8b3642cd44296011/dep-test-lib-rust_json_parser", reference_mtime: FileTime { seconds: 1762363325, nanos: 140384742 }, stale: "/home/juanjo/code/app/rust_json_parser/src/tokenizers.rs", stale_mtime: FileTime { seconds: 1762363492, nanos: 62552163 } }))
-   0.013814050s  INFO prepare_target{force=false package_id=rust_json_parser v0.1.0 (/home/juanjo/code/app/rust_json_parser) target="rust_json_parser"}: cargo::core::compiler::fingerprint: fingerprint error for rust_json_parser v0.1.0 (/home/juanjo/code/app/rust_json_parser)/Check { test: false }/TargetInner { name: "rust_json_parser", doc: true, ..: with_path("/home/juanjo/code/app/rust_json_parser/src/main.rs", Edition2021) }
-   0.013825750s  INFO prepare_target{force=false package_id=rust_json_parser v0.1.0 (/home/juanjo/code/app/rust_json_parser) target="rust_json_parser"}: cargo::core::compiler::fingerprint:     err: failed to read `/home/juanjo/code/app/rust_json_parser/target/debug/.fingerprint/rust_json_parser-2e798e104e388ab9/bin-rust_json_parser`
-
-Caused by:
-    No such file or directory (os error 2)
-
-Stack backtrace:
-   0: cargo_util::paths::read_bytes
-   1: cargo_util::paths::read
-   2: cargo::core::compiler::fingerprint::_compare_old_fingerprint
-   3: cargo::core::compiler::fingerprint::prepare_target
-   4: cargo::core::compiler::compile
-   5: <cargo::core::compiler::build_runner::BuildRunner>::compile
-   6: cargo::ops::cargo_compile::compile_ws
-   7: cargo::ops::cargo_compile::compile_with_exec
-   8: cargo::ops::cargo_compile::compile
-   9: cargo::commands::check::exec
-  10: <cargo::cli::Exec>::exec
-  11: cargo::main
-  12: std::sys::backtrace::__rust_begin_short_backtrace::<fn(), ()>
-  13: std::rt::lang_start::<()>::{closure#0}
-  14: core::ops::function::impls::<impl core::ops::function::FnOnce<A> for &F>::call_once
-             at /rustc/f8297e351a40c1439a467bbbb6879088047f50b3/library/core/src/ops/function.rs:287:21
-  15: std::panicking::catch_unwind::do_call
-             at /rustc/f8297e351a40c1439a467bbbb6879088047f50b3/library/std/src/panicking.rs:590:40
-  16: std::panicking::catch_unwind
-             at /rustc/f8297e351a40c1439a467bbbb6879088047f50b3/library/std/src/panicking.rs:553:19
-  17: std::panic::catch_unwind
-             at /rustc/f8297e351a40c1439a467bbbb6879088047f50b3/library/std/src/panic.rs:359:14
-  18: std::rt::lang_start_internal::{{closure}}
-             at /rustc/f8297e351a40c1439a467bbbb6879088047f50b3/library/std/src/rt.rs:175:24
-  19: std::panicking::catch_unwind::do_call
-             at /rustc/f8297e351a40c1439a467bbbb6879088047f50b3/library/std/src/panicking.rs:590:40
-  20: std::panicking::catch_unwind
-             at /rustc/f8297e351a40c1439a467bbbb6879088047f50b3/library/std/src/panicking.rs:553:19
-  21: std::panic::catch_unwind
-             at /rustc/f8297e351a40c1439a467bbbb6879088047f50b3/library/std/src/panic.rs:359:14
-  22: std::rt::lang_start_internal
-             at /rustc/f8297e351a40c1439a467bbbb6879088047f50b3/library/std/src/rt.rs:171:5
-  23: main
-  24: <unknown>
-  25: __libc_start_main
-  26: <unknown>
-   0.023595843s  INFO prepare_target{force=false package_id=rust_json_parser v0.1.0 (/home/juanjo/code/app/rust_json_parser) target="rust_json_parser"}: cargo::core::compiler::fingerprint: fingerprint dirty for rust_json_parser v0.1.0 (/home/juanjo/code/app/rust_json_parser)/Check { test: true }/TargetInner { name: "rust_json_parser", doc: true, ..: with_path("/home/juanjo/code/app/rust_json_parser/src/main.rs", Edition2021) }
-   0.023611743s  INFO prepare_target{force=false package_id=rust_json_parser v0.1.0 (/home/juanjo/code/app/rust_json_parser) target="rust_json_parser"}: cargo::core::compiler::fingerprint:     dirty: FsStatusOutdated(StaleDepFingerprint { name: "rust_json_parser" })
+   0.084675069s  INFO prepare_target{force=false package_id=rust_json_parser v0.1.0 (/home/juanjo/code/app/rust_json_parser) target="rust_json_parser"}: cargo::core::compiler::fingerprint: stale: changed "/home/juanjo/code/app/rust_json_parser/src/main.rs"
+   0.084718069s  INFO prepare_target{force=false package_id=rust_json_parser v0.1.0 (/home/juanjo/code/app/rust_json_parser) target="rust_json_parser"}: cargo::core::compiler::fingerprint:           (vs) "/home/juanjo/code/app/rust_json_parser/target/debug/.fingerprint/rust_json_parser-2e798e104e388ab9/dep-bin-rust_json_parser"
+   0.084725468s  INFO prepare_target{force=false package_id=rust_json_parser v0.1.0 (/home/juanjo/code/app/rust_json_parser) target="rust_json_parser"}: cargo::core::compiler::fingerprint:                FileTime { seconds: 1762364115, nanos: 947684539 } < FileTime { seconds: 1762364152, nanos: 587281382 }
+   0.084780868s  INFO prepare_target{force=false package_id=rust_json_parser v0.1.0 (/home/juanjo/code/app/rust_json_parser) target="rust_json_parser"}: cargo::core::compiler::fingerprint: fingerprint dirty for rust_json_parser v0.1.0 (/home/juanjo/code/app/rust_json_parser)/Check { test: false }/TargetInner { name: "rust_json_parser", doc: true, ..: with_path("/home/juanjo/code/app/rust_json_parser/src/main.rs", Edition2021) }
+   0.084793568s  INFO prepare_target{force=false package_id=rust_json_parser v0.1.0 (/home/juanjo/code/app/rust_json_parser) target="rust_json_parser"}: cargo::core::compiler::fingerprint:     dirty: FsStatusOutdated(StaleItem(ChangedFile { reference: "/home/juanjo/code/app/rust_json_parser/target/debug/.fingerprint/rust_json_parser-2e798e104e388ab9/dep-bin-rust_json_parser", reference_mtime: FileTime { seconds: 1762364115, nanos: 947684539 }, stale: "/home/juanjo/code/app/rust_json_parser/src/main.rs", stale_mtime: FileTime { seconds: 1762364152, nanos: 587281382 } }))
+   0.085018765s  INFO prepare_target{force=false package_id=rust_json_parser v0.1.0 (/home/juanjo/code/app/rust_json_parser) target="rust_json_parser"}: cargo::core::compiler::fingerprint: stale: changed "/home/juanjo/code/app/rust_json_parser/src/main.rs"
+   0.085046765s  INFO prepare_target{force=false package_id=rust_json_parser v0.1.0 (/home/juanjo/code/app/rust_json_parser) target="rust_json_parser"}: cargo::core::compiler::fingerprint:           (vs) "/home/juanjo/code/app/rust_json_parser/target/debug/.fingerprint/rust_json_parser-a6b8aed8cb34bd44/dep-test-bin-rust_json_parser"
+   0.085053365s  INFO prepare_target{force=false package_id=rust_json_parser v0.1.0 (/home/juanjo/code/app/rust_json_parser) target="rust_json_parser"}: cargo::core::compiler::fingerprint:                FileTime { seconds: 1762364115, nanos: 947684539 } < FileTime { seconds: 1762364152, nanos: 587281382 }
+   0.085088864s  INFO prepare_target{force=false package_id=rust_json_parser v0.1.0 (/home/juanjo/code/app/rust_json_parser) target="rust_json_parser"}: cargo::core::compiler::fingerprint: fingerprint dirty for rust_json_parser v0.1.0 (/home/juanjo/code/app/rust_json_parser)/Check { test: true }/TargetInner { name: "rust_json_parser", doc: true, ..: with_path("/home/juanjo/code/app/rust_json_parser/src/main.rs", Edition2021) }
+   0.085119064s  INFO prepare_target{force=false package_id=rust_json_parser v0.1.0 (/home/juanjo/code/app/rust_json_parser) target="rust_json_parser"}: cargo::core::compiler::fingerprint:     dirty: FsStatusOutdated(StaleItem(ChangedFile { reference: "/home/juanjo/code/app/rust_json_parser/target/debug/.fingerprint/rust_json_parser-a6b8aed8cb34bd44/dep-test-bin-rust_json_parser", reference_mtime: FileTime { seconds: 1762364115, nanos: 947684539 }, stale: "/home/juanjo/code/app/rust_json_parser/src/main.rs", stale_mtime: FileTime { seconds: 1762364152, nanos: 587281382 } }))
     Checking rust_json_parser v0.1.0 (/home/juanjo/code/app/rust_json_parser)
-error: could not compile `rust_json_parser` (bin "rust_json_parser") due to 1 previous error
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.14s
