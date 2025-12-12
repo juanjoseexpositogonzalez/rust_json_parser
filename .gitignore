@@ -1,0 +1,20 @@
+# Compilación
+/target
+
+# Archivos temporales de Rust
+**/*.rs.bk
+
+# Lockfile (quítalo de aquí si quieres versionarlo)
+Cargo.lock
+
+# Herramientas y editores
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+*.log
+
+# Documentación
+docs/**
+

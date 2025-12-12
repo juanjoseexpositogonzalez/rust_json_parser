@@ -1,4 +1,3 @@
-// TODO: Define your Token enum here
 //
 // Hint: You need variants for:
 // LeftBrace, RightBrace, LeftBracket, RightBracket, Comma, Colon
@@ -16,7 +15,7 @@ pub enum Token {
     Boolean(bool),
     Null,   
 }
-// TODO: Implement your tokenize function here
+
 pub fn tokenize(input: &str) -> Vec<Token> {
      // Your code goes here
     let mut it = input.chars().peekable();
