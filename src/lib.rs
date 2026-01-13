@@ -1,6 +1,8 @@
-pub mod tokenizers;
+pub mod tokenizer;
 pub mod error;
 pub mod value;
-pub use tokenizers::{tokenize, Token};
+pub mod parser;
+pub use tokenizer::{tokenize, Token};
 pub use error::{JsonError};
 pub use value::{JsonValue};
+pub use parser::{parse_json};
