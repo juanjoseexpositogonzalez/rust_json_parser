@@ -25,6 +25,21 @@ pub fn tokenize(input: &str) -> Vec<Token> {
     // It doesn't own the data, just borrows it (pass as value?)
     while let Some(&c) = it.peek() {
         match c {
+            '-' => {
+                it.next(); // consume '-'
+                let mut buf = String::from("-");
+                while let Some(&d) = it.peek() {
+                    if d.is_ascii_digit() || d == '.' {
+                        buf.push(d);
+                        it.next();
+                    } else {
+                        break;
+                    }
+                }
+                if let Ok(v) = buf.parse::<f64>() {
+                    tokens.push(Token::Number(v));
+                }
+            }
             c if c.is_ascii_digit() => {
                 let mut buf = String::new();
                 while let Some(&d) = it.peek() {
