@@ -7,7 +7,8 @@
 // - Boolean(bool)
 // - Number(f64)
 // - String(String)
-enum JsonValue {
+#[derive(Debug, Clone, PartialEq)]
+pub enum JsonValue {
     Null,
     Boolean(bool),
     Number(f64),
@@ -15,12 +16,32 @@ enum JsonValue {
 }
 
 // TODO: Implement helper methods
-// impl JsonValue {
-//   pub fn is_null(&self) -> bool { }
-//   pub fn as_str(&self) -> Option<&str> { }
-//   pub fn as_f64(&self) -> Option<f64> { }
-//   pub fn as_bool(&self) -> Option<bool> { }
-// }
+impl JsonValue {
+  pub fn is_null(&self) -> bool { 
+    match self {
+        JsonValue::Null => return true,
+        _ => false,
+    }
+  }
+  pub fn as_str(&self) -> Option<&str> { 
+    match self {
+        JsonValue::String(s) => Some(s),
+        _ => return None,
+    }
+  }
+  pub fn as_f64(&self) -> Option<f64> { 
+    match self {
+        JsonValue::Number(n) => Some(*n),
+        _ => return None,
+    }
+  }
+  pub fn as_bool(&self) -> Option<bool> { 
+    match self {
+        JsonValue::Boolean(b) => Some(*b),
+        _ => None,
+    }
+  }
+}
 
 // Copy these tests as-is:
 #[cfg(test)]
@@ -72,3 +93,4 @@ mod tests {
     assert_ne!(JsonValue::Null, JsonValue::Boolean(false));
     assert_ne!(JsonValue::Number(1.0), JsonValue::Number(2.0));
    }
+}
