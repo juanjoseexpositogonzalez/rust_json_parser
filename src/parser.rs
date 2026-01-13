@@ -23,9 +23,10 @@ pub fn parse_json(input: &str) -> Result<JsonValue> {
                 position: 0,
             })
         } else {
+            let first_char = trimmed.chars().next().unwrap_or_default().to_string();
             Err(JsonError::UnexpectedToken {
-                expected: "JSON value".to_string(),
-                found: trimmed.to_string(),
+                expected: "valid JSON token".to_string(),
+                found: first_char,
                 position: 0,
             })
         };
@@ -39,7 +40,7 @@ pub fn parse_json(input: &str) -> Result<JsonValue> {
         Token::Boolean(b) => Ok(JsonValue::Boolean(*b)),
         Token::Null => Ok(JsonValue::Null),
         other => Err(JsonError::UnexpectedToken {
-            expected: "JSON value".to_string(),
+            expected: "valid JSON token".to_string(),
             found: format!("{:?}", other),
             position: 0,
         }),
