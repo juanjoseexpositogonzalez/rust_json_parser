@@ -13,17 +13,36 @@ pub fn parse_json(input: &str) -> Result<JsonValue> {
     // 1. Call tokenize(input)?  (? propagates errors)
     // 2. Check if tokens is empty
     // 3. Match on tokens[0] and convert to JsonValue
-    let tokens = tokenize(input)?;
+    let tokens = tokenize(input);
+    let trimmed = input.trim();
+
     if tokens.is_empty() {
-        return Err(JsonError::UnexpectedEndOfInput { expected: "JSON value".to_string(), position: 0 });
+        return if trimmed.is_empty() {
+            Err(JsonError::UnexpectedEndOfInput {
+                expected: "JSON value".to_string(),
+                position: 0,
+            })
+        } else {
+            Err(JsonError::UnexpectedToken {
+                expected: "JSON value".to_string(),
+                found: trimmed.to_string(),
+                position: 0,
+            })
+        };
     }
-    let token = tokens.remove(0);
-    match token {
-        Token::String(s) => Ok(JsonValue::String(s)),
-        Token::Number(n) => Ok(JsonValue::Number(n)),
-        Token::Boolean(b) => Ok(JsonValue::Boolean(b)),
+
+    let first = tokens.first().unwrap();
+
+    match first {
+        Token::String(s) => Ok(JsonValue::String(s.clone())),
+        Token::Number(n) => Ok(JsonValue::Number(*n)),
+        Token::Boolean(b) => Ok(JsonValue::Boolean(*b)),
         Token::Null => Ok(JsonValue::Null),
-        _ => Err(JsonError::UnexpectedToken { expected: "JSON value".to_string(), found: token.to_string(), position: 0 }),
+        other => Err(JsonError::UnexpectedToken {
+            expected: "JSON value".to_string(),
+            found: format!("{:?}", other),
+            position: 0,
+        }),
     }
 }
 
